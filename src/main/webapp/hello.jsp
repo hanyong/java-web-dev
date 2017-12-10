@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page session="false" trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="app" tagdir="/WEB-INF/tags/"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +8,10 @@
 <title>Hello</title>
 </head>
 <body>
-Hello JSP
 <%
 String key = request.getParameter("key");
-String value = System.getProperty(key);
-out.print(value);
+request.setAttribute("key", key);
 %>
+<app:hello key="${key}"/>
 </body>
 </html>
