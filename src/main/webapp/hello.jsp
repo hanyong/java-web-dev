@@ -10,8 +10,9 @@
 <body>
 <%
 String key = request.getParameter("key");
-request.setAttribute("key", key);
+String value = System.getProperty(key);
+request.setAttribute("value", value);
 %>
-<app:hello key="${key}"/>
+<app:hello value="${value}"/>
 </body>
 </html>

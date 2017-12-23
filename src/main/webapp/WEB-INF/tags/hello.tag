@@ -1,7 +1,4 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ tag trimDirectiveWhitespaces="true"%>
-<%@ attribute name="key" fragment="false"%>
-<%
-String value = System.getProperty(key);
-%>
+<%@ attribute name="value" fragment="false"%>
 Hello JSP tag <%= value %>
