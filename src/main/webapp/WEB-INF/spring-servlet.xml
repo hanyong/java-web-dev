@@ -5,6 +5,8 @@
 
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 	
+	<bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>
+	
 	<bean class="com.example.javawebdev.biz.MessageService"></bean>
 	
 	<bean id="/hello" class="com.example.javawebdev.HelloServlet" init-method="initServletBean"></bean>

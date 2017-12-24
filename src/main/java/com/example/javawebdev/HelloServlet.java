@@ -8,22 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.servlet.HttpServletBean;
 
 import com.example.javawebdev.biz.MessageService;
 
-public class HelloServlet extends HttpServletBean implements HttpRequestHandler {
+public class HelloServlet extends HttpServletBean {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
 	protected MessageService messageService;
-
-	@Override
-	public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		service(request, response);
-	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
