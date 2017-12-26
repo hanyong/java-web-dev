@@ -9,6 +9,11 @@
 	
 	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
 	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
 	<bean class="com.example.javawebdev.biz.MessageService"></bean>
 	
 	<bean id="/helloServlet" class="com.example.javawebdev.HelloServlet" init-method="initServletBean"></bean>
