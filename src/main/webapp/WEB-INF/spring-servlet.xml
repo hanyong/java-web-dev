@@ -3,6 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+		<property name="properties">
+			<bean class="org.springframework.beans.factory.config.YamlPropertiesFactoryBean">
+				<property name="resources">
+					<list>
+						<value>classpath:application.yml</value>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 	
 	<bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>
@@ -14,7 +26,9 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
-	<bean class="com.example.javawebdev.biz.MessageService"></bean>
+	<bean class="com.example.javawebdev.biz.MessageService">
+		<property name="prefix" value="${app.message.prefix}"></property>
+	</bean>
 	
 	<bean id="/helloServlet" class="com.example.javawebdev.HelloServlet" init-method="initServletBean"></bean>
 
