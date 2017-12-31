@@ -17,6 +17,8 @@
 
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 	
+	<bean class="com.example.javawebdev.AppRefreshedListener"></bean>
+	
 	<bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>
 	
 	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
