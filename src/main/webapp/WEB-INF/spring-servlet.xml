@@ -7,6 +7,8 @@
 
 	<context:annotation-config />
 
+	<context:component-scan base-package="com.example.javawebdev"></context:component-scan>
+
 	<bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
 		<property name="properties">
 			<bean class="org.springframework.beans.factory.config.YamlPropertiesFactoryBean">
@@ -19,8 +21,6 @@
 		</property>
 	</bean>
 
-	<bean class="com.example.javawebdev.AppRefreshedListener"></bean>
-	
 	<bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>
 	
 	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
@@ -29,13 +29,5 @@
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	
-	<bean class="com.example.javawebdev.biz.MessageService">
-		<property name="prefix" value="${app.message.prefix}"></property>
-	</bean>
-	
-	<bean id="/helloServlet" class="com.example.javawebdev.HelloServlet" init-method="initServletBean"></bean>
-
-	<bean id="/hello" class="com.example.javawebdev.HelloController"></bean>
 
 </beans>
