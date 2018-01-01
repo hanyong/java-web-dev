@@ -41,7 +41,7 @@ public class AppPlaceholderConfig extends ApplicationObjectSupport {
 	 * <ul>
 	 * 	<li>不能使用 {@link org.springframework.beans.factory.annotation.Lookup} 注解。
 	 * 此方法被 {@link #propertySourcesPlaceholderConfigurer(Resource)} bean 依赖，
-	 * 其为 BeanFactoryPostProcessor，最早被创建，注解相关 PostProcessor 等还未创建，其及其依赖不能使用注解。</li>
+	 * 其为 BeanFactoryPostProcessor，最早被创建，注解相关 PostProcessor 等还未创建，其及其依赖不能使用相关注解。</li>
 	 * 	<li>最早调用此方法时，spring 容器功能还未完备，未能充分使用容器组装功能，但仍然使得此 bean 被容器管理。</li>
 	 * </ul>
 	 */
@@ -56,7 +56,7 @@ public class AppPlaceholderConfig extends ApplicationObjectSupport {
 	 * 	<li>此 bean 是 BeanFactoryPostProcessor，最早被创建，spring 容器功能还未完备。</li>
 	 * 	<li>作为容器基础设施的功能组件，应不要依赖注解等高级功能，可使用基础容器支持的相关接口等。
 	 * 如使用 {@link org.springframework.beans.factory.InitializingBean} 代替 {@link javax.annotation.PostConstruct}。</li>
-	 * 	<li>为减少创建基础组件的影响，如其依赖 configuration 组件的 <code>@Autowired</code> 注解未生效（？），应将其及其必须依赖移动到单独的配置中。</li>
+	 * 	<li>为减少创建基础组件的影响，如其依赖 configuration 组件应避免使用相关注解（测试 <code>@Autowired</code> 注解最终也未生效？），应将其及其必须依赖移动到单独的配置中。</li>
 	 * </ul>
 	 */
 	@Bean
