@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -19,11 +20,23 @@ public class AppRefreshedListener implements ApplicationListener<ContextRefreshe
 		Iterator<String> iter = ctx.getBeanFactory().getBeanNamesIterator();
 		for (String name; iter.hasNext();) {
 			name = iter.next();
-			Object bean = ctx.getBean(name);
+			boolean prototype = false;
+			try {
+				BeanDefinition def = ctx.getBeanFactory().getBeanDefinition(name);
+				prototype = def.isPrototype();
+			} catch (Exception e) {
+				// pass
+			}
+			Object bean;
+			if (prototype) {
+				bean = "<<---- PROTOTYPE ---->>";
+			} else {
+				bean = ctx.getBean(name);
+			}
 			beanMap.put(name, bean);
 		}
 		for (Map.Entry<String, Object> entry : beanMap.entrySet()) {
-			System.out.println(entry.getKey() + "=" + entry.getValue());
+			System.out.println(entry.getKey() + " = " + entry.getValue());
 		}
 		System.out.println("bean count: " + beanMap.size());
 	}
