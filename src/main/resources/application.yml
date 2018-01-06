@@ -1,3 +1,11 @@
 app:
   message:
     prefix: YAML
+server:
+  tomcat:
+    basedir:
+      target/
+spring:
+  mvc:
+    servlet:
+      load-on-startup: 1
