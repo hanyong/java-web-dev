@@ -12,7 +12,7 @@ import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.Resource;
 
-@Configuration
+//@Configuration
 public class AppPlaceholderConfig extends ApplicationObjectSupport {
 	
 	/**

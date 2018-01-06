@@ -9,6 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @ComponentScan
 @Import({
+	org.springframework.context.support.PropertySourcesPlaceholderConfigurer.class,
 	org.springframework.web.servlet.handler.SimpleServletHandlerAdapter.class,
 	org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.class,
 })
