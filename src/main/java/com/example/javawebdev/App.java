@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 /**
  * Spring Boot 应用入口。<p/>
  * 
- * 实现注意：不要添加组件注解，防止非 Spring Boot 下被使用。
+ * 实现注意：不要添加 <code>@Component</code> 等组件注解，防止非 Spring Boot 下被使用。
  */
 @ImportAutoConfiguration({
 	org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration.class,
